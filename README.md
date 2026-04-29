@@ -23,9 +23,9 @@
 ---
 
 ## Praktikum_1
-[**StackTugasMahasiswa07.java**](/asd_job9/StackTugasMahasiswa07.java)  
-[**Mahasiswa07.java**](/asd_job9/Mahasiswa07.java)  
-[**MahasiswaDemo07.java**](/asd_job9/MahasiswaDemo07.java)  
+[**StackTugasMahasiswa07.java (Commit Awal | 4ac438f)**](https://github.com/okeokke/asd_job9/commit/4ac438f8d91f58ebe9f659021c48a0b1033be2a5#diff-6e93542f79ff3ba7f4dbfdca031d0b42c01c7c436be5eb281bbf6a4336235ac2)  
+[**Mahasiswa07.java (Commit Awal | 4ac438f)**](https://github.com/okeokke/asd_job9/commit/4ac438f8d91f58ebe9f659021c48a0b1033be2a5#diff-d2bcd41f805db7994b82414441221155108e43257e5888ae1ebd27c748ff5b0a)  
+[**MahasiswaDemo07.java (Commit Awal | 4ac438f)**](https://github.com/okeokke/asd_job9/commit/4ac438f8d91f58ebe9f659021c48a0b1033be2a5#diff-4d77450899a88701e1ddadab765334cd45d15b91ae18210407213b66e1a5ccaa)  
 
 Screenshot output Praktikum 1 :   
 ![alt text](Out_P1.png)
