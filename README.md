@@ -62,7 +62,7 @@ Output :
 ```java 
 StackTugasMahasiswa07 stack = new StackTugasMahasiswa07(5);
 ```
-3. untuk mencegah error atau data yang menimpa data lama pada struktur data stack (tumpukan) yang menggunakan array dengan kapasitas tetap.
+3. untuk mencegah error overflow pada implementasi Stack dengan ukuran tetap (array-based stack). Dampaknya bisa Error saat runtime, ketika stack sudah penuh (top == maxSize-1), perintah top++ akan membuat top bernilai maxSize, kemudian arr[top] = data akan mencoba mengakses arr[maxSize] → Index Out of Bounds.
 
 
 [Kembali ke #Daftar_Percobaan](#daftar_percobaan)
