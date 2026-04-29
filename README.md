@@ -48,9 +48,23 @@ ini, serta tambahkan operasi menunya!
 
 
 ### Jawaban Praktikum 1
-1. 
+1. [**MahasiswaDemo07.java**](MahasiswaDemo07.java)   
+```java
+//Sebelum
+Mahasiswa07 mhs = new Mahasiswa07(nama, nim, kelas);
 
-     
+//Sesudah (Menyesuaikan urutan pada Class Mahasiswa07)
+Mahasiswa07 mhs = new Mahasiswa07(nim, nama, kelas);
+```
+Output : 
+![](Out_P1_New.png)
+2. pada file [**MahasiswaDemo07.java**](MahasiswaDemo07.java)
+```java 
+StackTugasMahasiswa07 stack = new StackTugasMahasiswa07(5);
+```
+3. untuk mencegah error atau data yang menimpa data lama pada struktur data stack (tumpukan) yang menggunakan array dengan kapasitas tetap.
+
+
 [Kembali ke #Daftar_Percobaan](#daftar_percobaan)
   
 ---
