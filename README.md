@@ -48,7 +48,7 @@ ini, serta tambahkan operasi menunya!
 
 
 ### Jawaban Praktikum 1
-1. [**MahasiswaDemo07.java**](MahasiswaDemo07.java)   
+1. [**MahasiswaDemo07.java (Commit 1e2f1f3)**](https://github.com/okeokke/asd_job9/commit/1e2f1f334ca4917965235b98a5a2d2895a368a41#diff-4d77450899a88701e1ddadab765334cd45d15b91ae18210407213b66e1a5ccaa)   
 ```java
 //Sebelum
 Mahasiswa07 mhs = new Mahasiswa07(nama, nim, kelas);
@@ -58,11 +58,15 @@ Mahasiswa07 mhs = new Mahasiswa07(nim, nama, kelas);
 ```
 Output : 
 ![](Out_P1_New.png)
-2. pada file [**MahasiswaDemo07.java**](MahasiswaDemo07.java)
+2. pada file [**MahasiswaDemo07.java Line 6**](https://github.com/okeokke/asd_job9/blob/98e9c83a5a1544ea4f99cbe0c8b5a9c25b0e9b88/MahasiswaDemo07.java#L6)
 ```java 
 StackTugasMahasiswa07 stack = new StackTugasMahasiswa07(5);
 ```
-3. untuk mencegah error overflow pada implementasi Stack dengan ukuran tetap (array-based stack). Dampaknya bisa Error saat runtime, ketika stack sudah penuh (top == maxSize-1), perintah top++ akan membuat top bernilai maxSize, kemudian arr[top] = data akan mencoba mengakses arr[maxSize] → Index Out of Bounds.
+3. untuk mencegah error overflow pada implementasi Stack dengan ukuran tetap (array-based stack). Dampaknya bisa Error saat runtime, ketika stack sudah penuh (top == maxSize-1), perintah top++ akan membuat top bernilai maxSize, kemudian arr[top] = data akan mencoba mengakses arr[maxSize] yang menyebabkan Index Out of Bounds. Untuk di bahasa pemrograman seperti C/C++ bisa menyebabkan crash.
+4. 5. 6.  [**MahasiswaDemo07.java**](MahasiswaDemo07.java)
+|| [**StackTugasMahasiswa07.java**](StackTugasMahasiswa07.java)  
+Demo Output: 
+![](Out_P1_Mod.png)
 
 
 [Kembali ke #Daftar_Percobaan](#daftar_percobaan)

@@ -54,6 +54,19 @@ public class StackTugasMahasiswa07 {
     }
   }
 
+  public Mahasiswa07 peekBawah(){
+    if (!isEmpty()) {
+      return stack[0];
+    } else {
+      System.out.println("Stack kosong! Tidak ada tugas yang dikumpulkan.");
+      return null;
+    }
+  }
+
+  public int count(){
+    return top + 1;
+  }
+
   public void print(){
     for (int i = 0; i <= top; i++) {
       System.out.println(stack[i].nama + "\t" + stack[i].nim + "\t" + stack[i].kelas);
