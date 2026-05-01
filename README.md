@@ -18,6 +18,10 @@
 - [**Praktikum 1**](#praktikum_1)   
    - [Pertanyaan Praktikum 1](#pertanyaan-praktikum-1)   
    - [Jawaban Praktikum 1](#jawaban-praktikum-1)   
+- [**Praktikum 2**](#praktikum_2)   
+   - [Pertanyaan Praktikum 1](#pertanyaan-praktikum-2)   
+   - [Jawaban Praktikum 1](#jawaban-praktikum-2)   
+
 
 
 ---
@@ -68,7 +72,69 @@ StackTugasMahasiswa07 stack = new StackTugasMahasiswa07(5);
 Demo Output: 
 ![](Out_P1_Mod.png)
 
-
 [Kembali ke #Daftar_Percobaan](#daftar_percobaan)
   
 ---
+
+## Praktikum_2
+[**MahasiswaDemo07.java**](MahasiswaDemo07.java)  
+[**StackKonversi07.java**](StackKonversi07.java)  
+[**StackTugasMahasiswa07.java**](StackTugasMahasiswa07.java)  
+
+
+Screenshot output Praktikum 2 :   
+![alt text](Out_P2.png)
+
+[Kembali ke #Daftar_Percobaan](#daftar_percobaan)
+
+### Pertanyaan Praktikum 2
+1. Jelaskan alur kerja dari method konversiDesimalKeBiner!
+2. Pada method konversiDesimalKeBiner, ubah kondisi perulangan menjadi while (kode != 0), bagaimana hasilnya? Jelaskan alasannya!
+
+[Kembali ke #Daftar_Percobaan](#daftar_percobaan)
+
+
+### Jawaban Praktikum 2
+1. Fungsi mengambil inputan angka untuk dimasukkan proses loop modulo, penambahan stack, pembagian untuk mencari translasi ke biner. Contoh ilustrasi:
+```
+input = 79
+
+loop start
+
+79 % 2 = 1
+push ke stack [1]
+79 / 2 = 38
+
+38 % 2 = 0
+push ke stack [1,0]
+38 / 2 = 19
+
+19 % 2 = 1
+push ke stack [1,0,1]
+19 / 2 = 9
+
+9 % 2 = 1
+push ke stack [1,0,1,1]
+9 / 2 = 4
+
+4 % 2 = 0
+push ke stack [1,0,1,1,0]
+4 / 2 = 2
+
+2 % 2 = 0 
+push ke stack [1,0,1,1,0,0]
+2/2 = 1 
+
+1 % 2 = 1
+push ke stack [1,0,1,1,0,0,1]
+1 / 2 = 0
+loop end
+
+```
+ Setelah itu semua selesai, akan dilakukan pengecekan apakah dalam stack masih ada sisa entry. jika ada, ada looping yang mem-pop semua entry dari stack satu per satu ke String biner untuk di return sebagai String.   
+2. Untuk bilangan positif tidak akan berubah hasilnya karena akan selalu berakhir di angka 0 yang memenuhi kondisi berhenti, sedangkan jika diinput angka negatif, loop masih berjalan dan akan mereturn angka negatif. pada kondisi (nilai>0), inputan angka negatif tidak akan berjalan sama sekali.
+
+[Kembali ke #Daftar_Percobaan](#daftar_percobaan)
+
+---
+ 
