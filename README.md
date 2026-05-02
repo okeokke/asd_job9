@@ -1,17 +1,241 @@
 
-<!-- ## [Latihan Praktikum](#latihan-praktikum)  \  [Daftar_Percobaan](#daftar_percobaan)   -->
-
-## [Daftar_Percobaan](#daftar_percobaan)  
+## [Latihan Praktikum](#latihan-praktikum)  \  [Daftar_Percobaan](#daftar_percobaan)  
 
 
-<!-- # Latihan Praktikum
+# Latihan Praktikum
 ### Soal :  
+Mahasiswa mengajukan surat izin (karena sakit atau keperluan lain) setiap kali tidak mengikuti perkuliahan. Surat terakhir yang masuk akan diproses atau divalidasi lebih dulu oleh admin Prodi.
+
+Berdasarkan class diagram berikut, implementasikan class `Surat` dan tambahkan class `StackSurat` untuk mengelola data Surat:
+
+| Surat<NoAbsen> |
+|-|
+|**Atribut**|
+|`idSurat: String`|
+|`namaMahasiswa: String`|
+|`kelas: String`|
+|`jenisIzin: char`|
+|`durasi: int`|
+|**Method**|
+|`Surat<NoAbsen>()`|
+|`Surat<NoAbsen>(idSurat: String, namaMahasiswa: String, kelas: String, jenisIzin: char, durasi: int)`|
+
+Atribut `jenisIzin` digunakan untuk menyimpan keterangan izin mahasiswa (S: sakit atau I: izin keperluan lain) dan `durasi` untuk menyimpan lama waktu izin.
+
+Berdasarkan class diagram tersebut, implementasikan class `Surat` dan tambahkan class `StackSurat` untuk mengelola data `Surat`. 
+
+Pada class yang memuat method main, buat pilihan menu berikut:
+1. **Terima Surat Izin** - untuk memasukkan data surat
+2. **Proses Surat Izin** - untuk memproses atau memverifikasi surat
+3. **Lihat Surat Izin Terakhir** - untuk melihat surat teratas
+4. **Cari Surat** - untuk mencari ada atau tidaknya surat izin berdasarkan `nama mahasiswa`
 
 ---  
   
 ### Jawaban
+- [**Surat07.java**](Surat07.java)  
+- [**StackSurat07.java**](StackSurat07.java)  
+- [**StackDemo07.java**](StackDemo07.java)  
+<details>
+  <summary><b>Lihat isi Surat07.java</b></summary>
 
---- -->
+[**Surat07.java**](Surat07.java)  
+
+```java
+public class Surat07 {
+  public String idSurat;
+  public String namaMahasiswa;
+  public String kelas;
+  public char jenisIzin;
+  public int durasi;
+
+  public Surat07() {
+  }
+
+  public Surat07(String idSurat, String namaMahasiswa, String kelas, char jenisIzin, int durasi) {
+    this.idSurat = idSurat;
+    this.namaMahasiswa = namaMahasiswa;
+    this.kelas = kelas;
+    this.jenisIzin = jenisIzin;
+    this.durasi = durasi;
+  }
+}
+
+  ```
+</details>
+
+<details>
+  <summary><b>Lihat isi StackSurat07.java</b></summary>
+
+[**StackSurat07.java**](StackSurat07.java)  
+
+```java
+public class StackSurat07 {
+  Surat07[] stack;
+  int top;
+  int size;
+
+  public StackSurat07(int size) {
+    this.size = size;
+    stack = new Surat07[size];
+    top = -1;
+  }
+
+  public boolean isEmpty() {
+    if (top == -1) {
+      return true;
+    } else {
+      return false;
+    }
+  }
+
+  public boolean isFull() {
+    if (top == size - 1) {
+      return true;
+    } else {
+      return false;
+    }
+  }
+
+  public void push(Surat07 surat) {
+    if (!isFull()) {
+      top++;
+      stack[top] = surat;
+    } else {
+      System.out.println("Stack surat penuh! Tidak bisa menambahkan surat lagi.");
+    }
+  }
+
+  public Surat07 pop() {
+    if (!isEmpty()) {
+      Surat07 s = stack[top];
+      top--;
+      return s;
+    } else {
+      System.out.println("Stack surat kosong! Tidak ada surat untuk diproses.");
+      return null;
+    }
+  }
+
+  public Surat07 peek() {
+    if (!isEmpty()) {
+      return stack[top];
+    } else {
+      System.out.println("Stack surat kosong! Tidak ada surat yang masuk.");
+      return null;
+    }
+  }
+
+  public Surat07 cariSurat(String nama) {
+    for (int i = 0; i <= top; i++) {
+      if (stack[i].namaMahasiswa.equals(nama)) {
+        return stack[i];
+      }
+    }
+    return null;
+  }
+}
+
+  ```
+</details>
+
+<details>
+  <summary><b>Lihat isi StackDemo07.java</b></summary>
+
+[**StackDemo07.java**](StackDemo07.java)  
+
+```java
+import java.util.Scanner;
+public class StackDemo07 {
+  public static void maixn(String[] args) {
+    Scanner sc = new Scanner(System.in);
+    int pilih;
+    StackSurat07 stackSurat = new StackSurat07(5);
+
+    do {
+    System.out.println("\nMenu:");
+    System.out.println("1. Terima Surat Izin");
+    System.out.println("2. Proses Surat Izin");
+    System.out.println("3. Lihat Surat Izin Terakhir");
+    System.out.println("4. Cari Surat");
+    System.out.print("Pilih: ");
+    pilih = sc.nextInt();
+    sc.nextLine();
+    switch (pilih) {
+      case 1:
+        System.out.print("ID Surat: ");
+        String idSurat = sc.nextLine();
+        System.out.print("Nama Mahasiswa: ");
+        String namaSurat = sc.nextLine();
+        System.out.print("Kelas: ");
+        String kelasSurat = sc.nextLine();
+        System.out.print("Jenis Izin (S/I): ");
+        char jenisIzin = sc.nextLine().charAt(0);
+        System.out.print("Durasi (hari): ");
+        int durasi = sc.nextInt();
+        sc.nextLine();
+        Surat07 surat = new Surat07(idSurat, namaSurat, kelasSurat, jenisIzin, durasi);
+        stackSurat.push(surat);
+        System.out.printf("Surat izin %s berhasil diterima\n", namaSurat);
+        break;
+      case 2:
+        Surat07 prosesSurat = stackSurat.pop();
+        if (prosesSurat != null) {
+          System.out.println("Memproses surat izin dari " + prosesSurat.namaMahasiswa);
+          System.out.println("ID Surat: " + prosesSurat.idSurat);
+          System.out.println("Kelas: " + prosesSurat.kelas);
+          System.out.println("Jenis Izin: " + prosesSurat.jenisIzin);
+          System.out.println("Durasi: " + prosesSurat.durasi + " hari");
+        }
+        break;
+      case 3:
+        Surat07 lihatSurat = stackSurat.peek();
+        if (lihatSurat != null) {
+          System.out.println("Surat izin terakhir:");
+          System.out.println("ID Surat: " + lihatSurat.idSurat);
+          System.out.println("Nama: " + lihatSurat.namaMahasiswa);
+          System.out.println("Kelas: " + lihatSurat.kelas);
+          System.out.println("Jenis Izin: " + lihatSurat.jenisIzin);
+          System.out.println("Durasi: " + lihatSurat.durasi + " hari");
+        }
+        break;
+      case 4:
+        System.out.print("Masukkan nama mahasiswa: ");
+        String cariNama = sc.nextLine();
+        Surat07 foundSurat = stackSurat.cariSurat(cariNama);
+        if (foundSurat != null) {
+          System.out.println("Surat izin ditemukan:");
+          System.out.println("ID Surat: " + foundSurat.idSurat);
+          System.out.println("Nama: " + foundSurat.namaMahasiswa);
+          System.out.println("Kelas: " + foundSurat.kelas);
+          System.out.println("Jenis Izin: " + foundSurat.jenisIzin);
+          System.out.println("Durasi: " + foundSurat.durasi + " hari");
+        } else {
+          System.out.println("Surat izin untuk mahasiswa " + cariNama + " tidak ditemukan.");
+        }
+        break;
+      default:
+        System.out.println("Pilihan tidak valid.");
+      }
+    } while (pilih >= 1 && pilih <= 4);
+    sc.close();
+  }
+}
+
+  ```
+</details>
+
+<details>
+<summary><b>Lihat Output</b></summary>
+
+![alt text](Output_T1.png)
+
+</details>
+
+
+
+---
+
 
 
 # Daftar_Percobaan
@@ -31,8 +255,11 @@
 [**Mahasiswa07.java (Commit Awal | 4ac438f)**](https://github.com/okeokke/asd_job9/commit/4ac438f8d91f58ebe9f659021c48a0b1033be2a5#diff-d2bcd41f805db7994b82414441221155108e43257e5888ae1ebd27c748ff5b0a)  
 [**MahasiswaDemo07.java (Commit Awal | 4ac438f)**](https://github.com/okeokke/asd_job9/commit/4ac438f8d91f58ebe9f659021c48a0b1033be2a5#diff-4d77450899a88701e1ddadab765334cd45d15b91ae18210407213b66e1a5ccaa)  
 
-Screenshot output Praktikum 1 :   
+  
+<details> <summary><b>Screenshot output Praktikum 1</b></summary>
+
 ![alt text](Out_P1.png)
+</details>
 
 [Kembali ke #Daftar_Percobaan](#daftar_percobaan)
 
@@ -61,7 +288,11 @@ Mahasiswa07 mhs = new Mahasiswa07(nama, nim, kelas);
 Mahasiswa07 mhs = new Mahasiswa07(nim, nama, kelas);
 ```
 Output : 
+<details> <summary><b>Output</b></summary>
+
 ![](Out_P1_New.png)
+</details>
+
 2. pada file [**MahasiswaDemo07.java Line 6**](https://github.com/okeokke/asd_job9/blob/98e9c83a5a1544ea4f99cbe0c8b5a9c25b0e9b88/MahasiswaDemo07.java#L6)
 ```java 
 StackTugasMahasiswa07 stack = new StackTugasMahasiswa07(5);
@@ -70,8 +301,12 @@ StackTugasMahasiswa07 stack = new StackTugasMahasiswa07(5);
 4. 5. 6.  [**MahasiswaDemo07.java**](MahasiswaDemo07.java)
 || [**StackTugasMahasiswa07.java**](StackTugasMahasiswa07.java)  
 Demo Output: 
-![](Out_P1_Mod.png)
+<details> <summary><b>Demo Output</b></summary>
 
+![](Out_P1_Mod.png)
+</details>
+  
+  
 [Kembali ke #Daftar_Percobaan](#daftar_percobaan)
   
 ---
@@ -83,7 +318,10 @@ Demo Output:
 
 
 Screenshot output Praktikum 2 :   
+<details> <summary><b>Screenshot output Praktikum 2</b></summary>
+
 ![alt text](Out_P2.png)
+</details>
 
 [Kembali ke #Daftar_Percobaan](#daftar_percobaan)
 
